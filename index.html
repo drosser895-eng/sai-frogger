@@ -1,0 +1,7 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TRAIGA Mission Control</title>
+<style>body{font-family:system-ui;background:#0b1020;color:#e8eefc;margin:0;padding:24px}h1{margin-top:0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}.card{background:#121a33;border:1px solid #22305f;border-radius:12px;padding:16px;box-shadow:0 4px 18px rgba(0,0,0,.25)}pre{white-space:pre-wrap;color:#bcd0ff}.muted{color:#91a3d6}</style></head>
+<body><h1>🍥 TRAIGA Mission Control</h1><p class="muted">Local dashboard bound to localhost only.</p><div class="grid"><div class="card"><h2>System</h2><pre id="system">Loading...</pre></div><div class="card"><h2>Outreach</h2><pre id="outreach">Loading...</pre></div><div class="card"><h2>Blockers</h2><pre id="blockers">Loading...</pre></div><div class="card"><h2>Mission Log</h2><pre id="log">Loading...</pre></div></div><script>
+async function load(id,url){const r=await fetch(url);document.getElementById(id).textContent=await r.text();}
+load('system','/status/system.json');load('outreach','/status/outreach.json');load('blockers','/status/blockers.json');load('log','/mission_log.md');
+</script></body></html>
