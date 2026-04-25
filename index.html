@@ -4,12 +4,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>SAI FROGGER: DATA LEAK</title>
     <style>
-        body { background: #000; color: #0f0; font-family: 'Courier New', monospace; margin: 0; overflow: hidden; touch-action: none; text-align: center; }
-        canvas { background: #010; border: 2px solid #0f0; display: block; margin: 10px auto; box-shadow: 0 0 20px #050; max-width: 95vw; max-height: 70vh; }
-        .ui { padding: 10px; }
-        .controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; width: 200px; margin: 0 auto; }
-        .btn { background: #0f0; color: #000; border: none; padding: 15px; font-weight: bold; border-radius: 5px; font-family: monospace; font-size: 14px; }
-        .btn:active { background: #0a0; }
+        body { 
+            background: #000; 
+            color: #0f0; 
+            font-family: 'Courier New', monospace; 
+            margin: 0; 
+            padding: 0;
+            padding-bottom: env(safe-area-inset-bottom, 30px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100dvh; 
+            overflow: hidden; 
+            touch-action: none; 
+            text-align: center;
+            box-sizing: border-box;
+        }
+        canvas { 
+            background: #010; 
+            border: 2px solid #0f0; 
+            display: block; 
+            margin: 5px auto; 
+            box-shadow: 0 0 20px #050; 
+            max-width: 95vw; 
+            max-height: 60vh; /* Reduced height to make room for controls */
+            flex-shrink: 1;
+        }
+        .ui { padding: 10px; width: 100%; box-sizing: border-box; }
+        .controls { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 10px; 
+            width: 220px; 
+            margin: 10px auto;
+            padding-bottom: 10px;
+        }
+        .btn { 
+            background: #0f0; 
+            color: #000; 
+            border: none; 
+            padding: 18px; 
+            font-weight: bold; 
+            border-radius: 8px; 
+            font-family: monospace; 
+            font-size: 16px; 
+            box-shadow: 0 4px #050;
+        }
+        .btn:active { 
+            background: #0a0; 
+            transform: translateY(2px);
+            box-shadow: 0 2px #050;
+        }
         #status { font-size: 14px; margin-top: 5px; }
     </style>
 </head>
